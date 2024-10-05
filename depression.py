@@ -2,11 +2,11 @@ import streamlit as st
 
 import pandas as pd
 import pickle
-#model = pickle.load(open('women_depression_rf_model.pkl', 'rb'))
+model = pickle.load(open('women_depression_rf_model.pkl', 'rb'))
 
 
 # 预测函数
-#def make_prediction(model, input_features):
+def make_prediction(model, input_features):
     input_features_df = pd.DataFrame([input_features], columns=[
         'Age', 'Major life events', 'Negative thoughts/behaviors', 'Number of suicide attempts',
         'IPAQ level', 'BMI', 'Sleep quality', 'Perceived stress', 'Hopelessness',
@@ -43,7 +43,7 @@ borderline_personality = st.number_input('Borderline personality', min_value=25,
 care = st.number_input('Care', min_value=0, max_value=36, step=1)
 overprotection = st.number_input('Overprotection', min_value=0, max_value=36, step=1)
 # 当用户点击预测按钮时，显示预测结果
-#if st.button('预测'):
+if st.button('预测'):
     # 创建输入特征列表
     input_features = [
         age, major_life_events, negative_thoughts_behaviors, number_suicide_attempts,
