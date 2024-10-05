@@ -1,11 +1,9 @@
 import streamlit as st
-import joblib
+
 import pandas as pd
 import pickle
 model = pickle.load(open('women_depression_rf_model.pkl', 'rb'))
 
-# 加载模型
-# model = joblib.load('women_depression_rf_model.pkl')
 
 # 预测函数
 def make_prediction(model, input_features):
